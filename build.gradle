@@ -39,7 +39,8 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api")
     testImplementation("io.micronaut.test:micronaut-test-junit5")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
-    implementation group: 'org.projectlombok', name: 'lombok', version: '1.18.12'
+    compileOnly 'org.projectlombok:lombok:1.16.20'
+    annotationProcessor "org.projectlombok:lombok:1.16.20"
     compile group: 'io.micronaut', name: 'micronaut-inject-java', version: '2.0.1'
 }
 
@@ -53,8 +54,8 @@ test {
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion('11')
-    targetCompatibility = JavaVersion.toVersion('11')
+    sourceCompatibility = JavaVersion.toVersion('8')
+    targetCompatibility = JavaVersion.toVersion('8')
 }
 
 tasks.withType(JavaCompile) {
