@@ -1,7 +1,8 @@
-package pl.bitrack.utils;
+package pl.bitrack.utils.impl;
 
 import pl.bitrack.api.dto.UserDto;
 import pl.bitrack.repository.domain.User;
+import pl.bitrack.utils.ModelDtoMapper;
 
 /**
  * @author Tomasz Szymeczek

@@ -7,7 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import pl.bitrack.api.dto.UserDto;
 import pl.bitrack.repository.domain.Status;
 import pl.bitrack.service.impl.UserService;
-import pl.bitrack.utils.UserModelDtoMapper;
+import pl.bitrack.utils.impl.UserModelDtoMapper;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 

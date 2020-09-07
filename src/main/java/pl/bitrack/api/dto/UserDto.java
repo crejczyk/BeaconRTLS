@@ -3,7 +3,7 @@ package pl.bitrack.api.dto;
 import lombok.Builder;
 import lombok.Data;
 import pl.bitrack.repository.domain.Coordinates;
-import pl.bitrack.repository.domain.PhoneNumber;
+import pl.bitrack.repository.domain.Phone;
 import pl.bitrack.repository.domain.Status;
 
 import java.util.UUID;
@@ -19,7 +19,7 @@ public class UserDto {
     UUID uuid;
     String firstName;
     String lastName;
-    PhoneNumber phone;
+    Phone phone;
     Status status;
     Coordinates coordinates;
 

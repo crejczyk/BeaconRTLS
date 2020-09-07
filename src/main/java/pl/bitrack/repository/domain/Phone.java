@@ -1,5 +1,6 @@
 package pl.bitrack.repository.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
@@ -11,7 +12,8 @@ import java.util.UUID;
  */
 @Builder
 @Data
-public class PhoneNumber {
+@AllArgsConstructor
+public class Phone {
 
     UUID uuid;
     Long id;

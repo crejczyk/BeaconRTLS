@@ -17,7 +17,7 @@ public class User {
     Long id;
     String firstName;
     String lastName;
-    PhoneNumber phone;
+    Phone phone;
     Status status;
     Coordinates coordinates;
 
