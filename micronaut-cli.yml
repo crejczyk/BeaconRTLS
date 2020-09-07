@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: pl.bitrack
+testFramework: junit
+sourceLanguage: java
+buildTool: gradle
+features: [annotation-api, app-name, docker, file-watch, gradle, http-client, jackson-xml, java, java-application, junit, log4j2, reactor, readme, shade, tomcat-server, yaml]
