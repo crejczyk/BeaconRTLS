@@ -8,7 +8,6 @@ import pl.bitrack.utils.ModelDtoMapper;
  * @author Tomasz Szymeczek
  * Date 07/09/2020
  */
-
 public class UserModelDtoMapper implements ModelDtoMapper<User, UserDto> {
 
     @Override
@@ -20,6 +19,7 @@ public class UserModelDtoMapper implements ModelDtoMapper<User, UserDto> {
                 .phone(userDto.getPhone())
                 .coordinates(userDto.getCoordinates())
                 .status(userDto.getStatus())
+                .type(userDto.getType())
                 .build();
     }
 
@@ -32,6 +32,7 @@ public class UserModelDtoMapper implements ModelDtoMapper<User, UserDto> {
                 .phone(user.getPhone())
                 .coordinates(user.getCoordinates())
                 .status(user.getStatus())
+                .type(user.getType())
                 .build();
     }
 

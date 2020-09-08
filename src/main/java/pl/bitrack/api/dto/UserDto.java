@@ -5,6 +5,7 @@ import lombok.Data;
 import pl.bitrack.repository.domain.Coordinates;
 import pl.bitrack.repository.domain.Phone;
 import pl.bitrack.repository.domain.Status;
+import pl.bitrack.repository.domain.Type;
 
 import java.util.UUID;
 
@@ -22,5 +23,6 @@ public class UserDto {
     Phone phone;
     Status status;
     Coordinates coordinates;
+    Type type;
 
 }

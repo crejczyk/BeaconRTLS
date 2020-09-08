@@ -3,6 +3,8 @@ package pl.bitrack.repository.domain;
 import lombok.Builder;
 import lombok.Data;
 
+import java.math.BigDecimal;
+
 /**
  * @author Tomasz Szymeczek
  * Date 07/09/2020
@@ -11,8 +13,8 @@ import lombok.Data;
 @Builder
 public class Coordinates {
 
-    Long x;
-    Long y;
-    Floor floor;
+    BigDecimal lng;
+    BigDecimal lat;
+    Long zLevel;
 
 }

@@ -4,6 +4,7 @@ import pl.bitrack.repository.Repository;
 import pl.bitrack.repository.domain.*;
 
 import javax.inject.Singleton;
+import java.math.BigDecimal;
 import java.util.*;
 
 /**
@@ -24,12 +25,11 @@ public class UserRepository implements Repository<User> {
                 .id(1L)
                 .phone(new Phone(UUID.randomUUID(), 1L, 504745944L))
                 .status(Status.OUTSIDE)
+                .type(Type.EMPLOYEE)
                 .coordinates(Coordinates.builder()
-                        .x(0L)
-                        .y(0L)
-                        .floor(Floor.builder()
-                                .value(0L)
-                                .build())
+                        .lng(BigDecimal.ZERO)
+                        .lat(BigDecimal.ZERO)
+                        .zLevel(0L)
                         .build())
                 .build()
         );
@@ -41,13 +41,13 @@ public class UserRepository implements Repository<User> {
                 .id(2L)
                 .phone(new Phone(UUID.randomUUID(), 2L, 123456789L))
                 .status(Status.OUTSIDE)
+                .type(Type.EMPLOYEE)
                 .coordinates(Coordinates.builder()
-                        .x(20L)
-                        .y(20L)
-                        .floor(Floor.builder()
-                                .value(1L)
-                                .build())
-                        .build()).build()
+                        .lng(BigDecimal.TEN)
+                        .lat(BigDecimal.TEN)
+                        .zLevel(1L)
+                        .build())
+                .build()
         );
         UUID KBuuid = UUID.randomUUID();
         USERS_DB_MOCK.put(KBuuid, User.builder()
@@ -57,13 +57,13 @@ public class UserRepository implements Repository<User> {
                 .id(3L)
                 .phone(new Phone(UUID.randomUUID(), 1L, 987654321L))
                 .status(Status.INSIDE)
+                .type(Type.GUEST)
                 .coordinates(Coordinates.builder()
-                        .x(10L)
-                        .y(10L)
-                        .floor(Floor.builder()
-                                .value(2L)
-                                .build())
-                        .build()).build()
+                        .lng(BigDecimal.ONE)
+                        .lat(BigDecimal.ONE)
+                        .zLevel(2L)
+                        .build())
+                .build()
         );
     }
 

@@ -20,5 +20,6 @@ public class User {
     Phone phone;
     Status status;
     Coordinates coordinates;
+    Type type;
 
 }
