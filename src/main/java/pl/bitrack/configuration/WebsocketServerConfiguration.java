@@ -12,9 +12,11 @@ import pl.bitrack.messaging.websocket.WebsocketMessageServer;
 @Factory
 public class WebsocketServerConfiguration {
 
+/*
     @Bean
     public WebsocketMessageServer websocketServer(WebSocketBroadcaster broadcaster) {
         return new WebsocketMessageServer(broadcaster);
     }
+*/
 
 }
