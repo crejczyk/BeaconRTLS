@@ -26,7 +26,7 @@ dependencies {
     implementation("io.micronaut:micronaut-validation")
     implementation("io.micronaut:micronaut-runtime")
     implementation("javax.annotation:javax.annotation-api")
-    implementation("io.micronaut.servlet:micronaut-http-server-tomcat")
+    compile "io.micronaut:micronaut-http-server-netty"
     implementation("io.micronaut:micronaut-http-client")
     implementation("io.micronaut.reactor:micronaut-reactor")
     implementation("io.micronaut.xml:micronaut-jackson-xml")
@@ -87,5 +87,14 @@ tasks.withType(JavaExec) {
     }
 }
 
+tasks.withType(JavaCompile) {
+    options.compilerArgs = [
+            '-Amicronaut.processing.incremental=true',
+            '-Amicronaut.processing.annotations=pl.bitrack.*',
+    ]
+}
+
+run.classpath += configurations.developmentOnly
+run.jvmArgs('-noverify', '-XX:TieredStopAtLevel=1', '-Dcom.sun.management.jmxremote')
 
 

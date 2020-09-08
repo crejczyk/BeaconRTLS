@@ -2,18 +2,21 @@ package pl.bitrack.messaging.websocket;
 
 import io.micronaut.websocket.WebSocketBroadcaster;
 import io.micronaut.websocket.WebSocketSession;
-import io.micronaut.websocket.annotation.*;
+import io.micronaut.websocket.annotation.OnClose;
+import io.micronaut.websocket.annotation.OnOpen;
+import io.micronaut.websocket.annotation.ServerWebSocket;
 import lombok.extern.slf4j.Slf4j;
 import org.reactivestreams.Publisher;
 
-import java.util.function.Predicate;
+import javax.inject.Singleton;
 
 /**
  * @author Tomasz Szymeczek
  * Date 07/09/2020
  */
 @Slf4j
-@ServerWebSocket("/ws/chat/{topic}/{username}")
+@Singleton
+@ServerWebSocket("/ws/users")
 public class WebsocketMessageServer {
 
     private final WebSocketBroadcaster broadcaster;
@@ -23,32 +26,13 @@ public class WebsocketMessageServer {
     }
 
     @OnOpen
-    public Publisher<String> onOpen(String topic, String username, WebSocketSession session) {
-        String msg = "[" + username + "] Joined!";
-        return broadcaster.broadcast(msg, isValid(topic));
-    }
-
-    @OnMessage
-    public Publisher<String> onMessage(
-            String topic,
-            String username,
-            String message,
-            WebSocketSession session) {
-        String msg = "[" + username + "] " + message;
-        return broadcaster.broadcast(msg, isValid(topic));
+    public Publisher<String> onOpen(WebSocketSession session) {
+        return broadcaster.broadcast("Connected to websocket: " + session.getRequestURI());
     }
 
     @OnClose
-    public Publisher<String> onClose(
-            String topic,
-            String username,
-            WebSocketSession session) {
-        String msg = "[" + username + "] Disconnected!";
-        return broadcaster.broadcast(msg, isValid(topic));
-    }
-
-    private Predicate<WebSocketSession> isValid(String topic) {
-        return s -> topic.equalsIgnoreCase(s.getUriVariables().get("topic", String.class, null));
+    public Publisher<String> onClose(WebSocketSession session) {
+        return broadcaster.broadcast("Disconnected from websocket");
     }
 
 }
