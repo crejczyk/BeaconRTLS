@@ -10,7 +10,7 @@ import java.util.UUID;
  * Date 07/09/2020
  */
 @Value
-public class MqttPositionEvent {
+public class MqttUpdatePositionEvent {
 
     UUID uuid;
     Coordinates coordinates;

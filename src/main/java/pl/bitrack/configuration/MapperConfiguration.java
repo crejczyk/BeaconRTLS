@@ -2,6 +2,7 @@ package pl.bitrack.configuration;
 
 import io.micronaut.context.annotation.Bean;
 import io.micronaut.context.annotation.Factory;
+import pl.bitrack.utils.impl.SensorMapper;
 import pl.bitrack.utils.impl.UserMapper;
 
 /**
@@ -14,6 +15,11 @@ public class MapperConfiguration {
     @Bean
     public UserMapper userMapper() {
         return new UserMapper();
+    }
+
+    @Bean
+    public SensorMapper sensorMapper() {
+        return new SensorMapper();
     }
 
 }

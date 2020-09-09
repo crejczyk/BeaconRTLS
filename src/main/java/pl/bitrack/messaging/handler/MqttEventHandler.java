@@ -1,7 +1,7 @@
 package pl.bitrack.messaging.handler;
 
 import pl.bitrack.messaging.EventHandler;
-import pl.bitrack.messaging.event.MqttPositionEvent;
+import pl.bitrack.messaging.event.MqttUpdatePositionEvent;
 import pl.bitrack.repository.domain.User;
 import pl.bitrack.service.impl.UserService;
 
@@ -21,7 +21,7 @@ public class MqttEventHandler implements EventHandler {
     }
 
     @Override
-    public void handle(MqttPositionEvent event) {
+    public void handle(MqttUpdatePositionEvent event) {
         User updatedUser = userService.update(event.getUuid(), event.getCoordinates());
         // next step -> push to websocket
     }

@@ -20,6 +20,7 @@ public class WebsocketMessageScheduler {
 
     @Scheduled(fixedDelay = "1s")
     public void scheduleMockedPositions() {
+
         // here we can publish mocked users positions into websocket
         broadcaster.broadcastSync("message");
     }

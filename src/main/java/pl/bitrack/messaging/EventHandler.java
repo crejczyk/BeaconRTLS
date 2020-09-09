@@ -1,6 +1,6 @@
 package pl.bitrack.messaging;
 
-import pl.bitrack.messaging.event.MqttPositionEvent;
+import pl.bitrack.messaging.event.MqttUpdatePositionEvent;
 
 /**
  * @author Tomasz Szymeczek
@@ -8,6 +8,6 @@ import pl.bitrack.messaging.event.MqttPositionEvent;
  */
 public interface EventHandler {
 
-    void handle(MqttPositionEvent event);
+    void handle(MqttUpdatePositionEvent event);
 
 }
