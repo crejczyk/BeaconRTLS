@@ -3,14 +3,13 @@ package pl.bitrack.repository.domain;
 import lombok.Builder;
 import lombok.Data;
 
-/**
- * @author Tomasz Szymeczek
- * Date 07/09/2020
- */
+import java.util.UUID;
+
 @Data
 @Builder
-public class Floor {
+public class Sensor {
 
-    Long value;
+    UUID uuid;
+    Coordinates coordinates;
 
 }

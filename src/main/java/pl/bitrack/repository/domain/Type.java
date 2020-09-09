@@ -7,6 +7,7 @@ package pl.bitrack.repository.domain;
 public enum Type {
 
     EMPLOYEE,
+    COMPANY_GUEST,
     GUEST
 
 }

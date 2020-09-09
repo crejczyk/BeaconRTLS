@@ -8,7 +8,7 @@ import pl.bitrack.utils.ModelDtoMapper;
  * @author Tomasz Szymeczek
  * Date 07/09/2020
  */
-public class UserModelDtoMapper implements ModelDtoMapper<User, UserDto> {
+public class UserMapper implements ModelDtoMapper<User, UserDto> {
 
     @Override
     public User toModel(UserDto userDto) {

@@ -1,7 +1,8 @@
-package pl.bitrack.repository.domain;
+package pl.bitrack.api.dto;
 
 import lombok.Builder;
 import lombok.Data;
+import pl.bitrack.repository.domain.Coordinates;
 
 import java.util.UUID;
 
@@ -9,17 +10,11 @@ import java.util.UUID;
  * @author Tomasz Szymeczek
  * Date 07/09/2020
  */
-@Builder
 @Data
-public class User {
+@Builder
+public class SensorDto {
 
     UUID uuid;
-    Long id;
-    String firstName;
-    String lastName;
-    String phone;
-    Status status;
     Coordinates coordinates;
-    Type type;
 
 }

@@ -2,7 +2,7 @@ package pl.bitrack.configuration;
 
 import io.micronaut.context.annotation.Bean;
 import io.micronaut.context.annotation.Factory;
-import pl.bitrack.utils.impl.UserModelDtoMapper;
+import pl.bitrack.utils.impl.UserMapper;
 
 /**
  * @author Tomasz Szymeczek
@@ -12,8 +12,8 @@ import pl.bitrack.utils.impl.UserModelDtoMapper;
 public class MapperConfiguration {
 
     @Bean
-    public UserModelDtoMapper userMapper() {
-        return new UserModelDtoMapper();
+    public UserMapper userMapper() {
+        return new UserMapper();
     }
 
 }

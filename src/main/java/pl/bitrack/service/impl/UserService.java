@@ -30,6 +30,10 @@ public class UserService implements Service<User> {
                 .orElseThrow(() -> new IllegalArgumentException("User with that UUID does not exist"));
     }
 
+    public List<User> getAll() {
+        return userRepository.getAll();
+    }
+
     public List<User> getAllByStatus(Status status) {
         return userRepository.getAll().stream()
                 .filter(user -> user.getStatus() == status)
