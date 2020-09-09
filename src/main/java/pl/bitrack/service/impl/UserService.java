@@ -42,7 +42,7 @@ public class UserService implements Service<User> {
 
     public User update(UUID uuid, Coordinates coordinates) {
         User user = getById(uuid);
-        // probably here we gonna make some calculations for current position
+        // TODO probably here we gonna make some calculations for current position
         user.setCoordinates(coordinates);
         return userRepository.update(user);
     }

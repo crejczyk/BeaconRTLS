@@ -12,16 +12,18 @@ import javax.inject.Singleton;
 @Singleton
 public class WebsocketMessageScheduler {
 
+    private static final String SCHEDULER_INTERVAL_VALUE = "1s";
+
     private final WebSocketBroadcaster broadcaster;
 
     public WebsocketMessageScheduler(WebSocketBroadcaster broadcaster) {
         this.broadcaster = broadcaster;
     }
 
-    @Scheduled(fixedDelay = "1s")
+    @Scheduled(fixedDelay = SCHEDULER_INTERVAL_VALUE)
     public void scheduleMockedPositions() {
 
-        // here we can publish mocked users positions into websocket
+        // TODO here we can publish mocked users positions into websocket
         broadcaster.broadcastSync("message");
     }
 
