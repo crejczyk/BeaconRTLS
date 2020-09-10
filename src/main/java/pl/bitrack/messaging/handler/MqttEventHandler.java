@@ -12,6 +12,7 @@ import pl.bitrack.service.impl.UserService;
 import javax.inject.Singleton;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 
 import static java.util.stream.Collectors.groupingBy;
 
@@ -35,17 +36,18 @@ public class MqttEventHandler implements EventHandler {
 
     @Override
     public void handle(List<MqttUpdatePositionEvent> event) {
-        getListOfSensors(event).forEach((key, value) -> {
-            double[] distances = value.stream().mapToDouble(data -> getDistance(data.getRssi())).toArray();
-            NonLinearLeastSquaresSolver solver = new NonLinearLeastSquaresSolver(new TrilaterationFunction(POSITIONS, distances), new LevenbergMarquardtOptimizer());
-            LeastSquaresOptimizer.Optimum optimum = solver.solve();
-            double[] centroid = optimum.getPoint().toArray();
-            log.info("Centroid: {}", centroid);
-        });
+        getMapOfSensors(event, MqttUpdatePositionEvent::getSensorId).forEach((sensor, listBySensors) ->
+                getMapOfSensors(listBySensors, MqttUpdatePositionEvent::getUuid).forEach((uuid, listByUuid) -> {
+                    double[] distances = listByUuid.stream().mapToDouble(data -> getDistance(data.getRssi())).toArray();
+                    NonLinearLeastSquaresSolver solver = new NonLinearLeastSquaresSolver(new TrilaterationFunction(POSITIONS, distances), new LevenbergMarquardtOptimizer());
+                    LeastSquaresOptimizer.Optimum optimum = solver.solve();
+                    double[] centroid = optimum.getPoint().toArray();
+                    log.info("Centroid: {}-{} :{}", sensor, uuid, centroid);
+                }));
     }
 
-    private Map<String, List<MqttUpdatePositionEvent>> getListOfSensors(List<MqttUpdatePositionEvent> event) {
-        return event.stream().collect(groupingBy(MqttUpdatePositionEvent::getSensorId));
+    private Map<String, List<MqttUpdatePositionEvent>> getMapOfSensors(List<MqttUpdatePositionEvent> event, Function<MqttUpdatePositionEvent, String> groupBy) {
+        return event.stream().collect(groupingBy(groupBy));
     }
 
     private double getDistance(int rssi) {

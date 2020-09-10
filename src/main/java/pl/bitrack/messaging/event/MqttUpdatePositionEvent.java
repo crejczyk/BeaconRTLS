@@ -13,6 +13,7 @@ import java.util.UUID;
  * Date 07/09/2020
  */
 @Data
+@AllArgsConstructor
 public class MqttUpdatePositionEvent {
 
     String sensorId;
