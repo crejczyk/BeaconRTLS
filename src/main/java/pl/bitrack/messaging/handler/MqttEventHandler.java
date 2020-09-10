@@ -24,9 +24,9 @@ import static java.util.stream.Collectors.groupingBy;
 @Slf4j
 public class MqttEventHandler implements EventHandler {
 
-    private static double[][] POSITIONS = new double[][]{{5.0, -6.0}, {13.0, -15.0}, {21.0, -3.0}, {12.4, -21.2}};
-    private static double ENVIRONMENTAL_FACTOR = 2;
-    private static int MEASURED_POWER = -69;
+    private static final double[][] POSITIONS = new double[][]{{5.0, -6.0}, {13.0, -15.0}, {21.0, -3.0}, {12.4, -21.2}};
+    private static final double ENVIRONMENTAL_FACTOR = 2;
+    private static final int MEASURED_POWER = -69;
 
     private final UserService userService;
 

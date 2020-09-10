@@ -1,18 +1,15 @@
 package pl.bitrack.messaging.event;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.Value;
-import pl.bitrack.repository.domain.Coordinates;
-
-import java.util.UUID;
 
 /**
  * @author Tomasz Szymeczek
  * Date 07/09/2020
  */
-@Data
+@Value
+@RequiredArgsConstructor
 @AllArgsConstructor
 public class MqttUpdatePositionEvent {
 
