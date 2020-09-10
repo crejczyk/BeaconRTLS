@@ -16,3 +16,6 @@
 
 - [https://github.com/FasterXML/jackson-dataformat-xml](https://github.com/FasterXML/jackson-dataformat-xml)
 
+## BLE-Beacon-Scanner
+
+- [https://github.com/singaCapital/BLE-Beacon-Scanner](https://github.com/singaCapital/BLE-Beacon-Scanner)
